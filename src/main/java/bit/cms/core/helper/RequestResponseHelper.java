@@ -1,4 +1,9 @@
-package bit.cms.core.controller;
+package bit.cms.core.helper;
+
+import bit.cms.core.controller.AdminController;
+import bit.cms.core.controller.Controller;
+import bit.cms.core.controller.ErrorController;
+import bit.cms.core.controller.UserController;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -10,7 +15,9 @@ import javax.servlet.http.HttpServletResponse;
  *         Date: 13.11.2014
  *         Time: 8:47
  */
-public class RequestResponseHelper {
+public class RequestResponseHelper implements Helper {
+    private static final long serialVersionUID = 3435265598340082299L;
+
     private ServletRequest servletRequest;
     private ServletResponse servletResponse;
 
@@ -19,6 +26,7 @@ public class RequestResponseHelper {
         this.servletResponse = servletResponse;
     }
 
+    @Override
     public Controller getController() {
         return ControllerFactory.getController((HttpServletRequest) servletRequest, (HttpServletResponse) servletResponse);
     }

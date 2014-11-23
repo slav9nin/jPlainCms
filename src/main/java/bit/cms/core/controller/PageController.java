@@ -1,5 +1,7 @@
 package bit.cms.core.controller;
 
+import bit.cms.core.helper.Helper;
+
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -20,7 +22,7 @@ public abstract class PageController implements Controller {
     }
 
     @Override
-    public String getPage(RequestResponseHelper helper) throws ServletException, IOException {
+    public String getPage(Helper helper) throws ServletException, IOException {
         return getLocalPath();
     }
 

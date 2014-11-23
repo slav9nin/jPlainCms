@@ -1,7 +1,8 @@
 package bit.cms.servlet;
 
 import bit.cms.core.controller.Controller;
-import bit.cms.core.controller.RequestResponseHelper;
+import bit.cms.core.helper.RequestResponseHelper;
+import bit.cms.core.helper.Helper;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -22,7 +23,7 @@ public class PageControllerServlet extends GeneralServlet {
 
     @Override
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestResponseHelper helper = new RequestResponseHelper(request, response);
+        Helper helper = new RequestResponseHelper(request, response);
         Controller controller = helper.getController();
         String page = controller.getPage(helper);
         generalDispatch(request, response, page);

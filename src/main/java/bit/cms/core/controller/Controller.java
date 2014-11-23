@@ -1,5 +1,7 @@
 package bit.cms.core.controller;
 
+import bit.cms.core.helper.Helper;
+
 import javax.servlet.ServletException;
 import java.io.IOException;
 
@@ -9,7 +11,7 @@ import java.io.IOException;
  *         Time: 21:51
  */
 public interface Controller {
-    public String getPage(RequestResponseHelper helper) throws ServletException, IOException;
+    public String getPage(Helper helper) throws ServletException, IOException;
 
     public static final String USER = "user";
     public static final String ADMIN = "admin";

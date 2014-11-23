@@ -1,6 +1,10 @@
 package bit.cms.core.pagging;
 
+import bit.cms.core.Constants;
+
 import java.util.List;
+
+import static bit.cms.core.Constants.ITEMS_PER_PAGE;
 
 /**
  * Created by bito4ek on 23.11.14.
@@ -11,7 +15,7 @@ public class ClientPagination<Bean> implements Pagination<Bean> {
     private List<Bean> currentList;
     private Integer maxResult;
     private Integer currentPage;
-    private int itemsPerPage = 20;
+    private int itemsPerPage = ITEMS_PER_PAGE;
 
     public ClientPagination(List<Bean> currentList) {
         this.currentList = currentList;

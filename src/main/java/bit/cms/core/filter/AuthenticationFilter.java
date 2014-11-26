@@ -16,6 +16,10 @@ public class AuthenticationFilter implements Filter {
 
     private Filter target;
 
+    public AuthenticationFilter() {
+        this(null);
+    }
+
     public AuthenticationFilter(Filter target) {
         this.target = target;
     }

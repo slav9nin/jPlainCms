@@ -14,6 +14,10 @@ public class DebugFilter implements Filter {
 
     private Filter target;
 
+    public DebugFilter() {
+        this(null);
+    }
+
     public DebugFilter(Filter target) {
         this.target = target;
     }

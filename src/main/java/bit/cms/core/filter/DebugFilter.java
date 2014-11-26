@@ -14,13 +14,16 @@ public class DebugFilter implements Filter {
 
     private Filter target;
 
+    public DebugFilter() {
+        this(null);
+    }
+
     public DebugFilter(Filter target) {
         this.target = target;
     }
 
     @Override
     public void execute(ServletRequest request, ServletResponse response) throws AuthenticationException {
-
         if (target != null)
             target.execute(request, response);
     }

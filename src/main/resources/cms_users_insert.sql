@@ -1,0 +1,1 @@
+INSERT INTO javacms.cms_users (id, login, password, first_name, middle_name, last_name, role_id, active) VALUES (1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Artem', 'Igorevich', 'Telizhenko', 1, 'Y');

@@ -1,0 +1,6 @@
+CREATE TABLE cms_roles
+(
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  name VARCHAR(40) NOT NULL,
+  active CHAR(1)
+);

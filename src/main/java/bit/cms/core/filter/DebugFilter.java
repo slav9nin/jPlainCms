@@ -20,7 +20,6 @@ public class DebugFilter implements Filter {
 
     @Override
     public void execute(ServletRequest request, ServletResponse response) throws AuthenticationException {
-
         if (target != null)
             target.execute(request, response);
     }

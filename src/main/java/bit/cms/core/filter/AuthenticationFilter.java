@@ -23,7 +23,6 @@ public class AuthenticationFilter implements Filter {
     @Override
     public void execute(ServletRequest request, ServletResponse response) throws AuthenticationException {
         HttpServletRequest servletRequest = (HttpServletRequest) request;
-
         HttpSession session = servletRequest.getSession(false);
         if (session == null || session.getAttribute("user") == null)
             throw new AuthenticationException("User is not authenticated");

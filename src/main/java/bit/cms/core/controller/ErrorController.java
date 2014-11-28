@@ -1,7 +1,6 @@
 package bit.cms.core.controller;
 
 import bit.cms.core.helper.Helper;
-import bit.cms.core.helper.RequestResponseHelper;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
@@ -20,11 +19,11 @@ public class ErrorController extends PageController implements Controller {
 
     @Override
     public String getPage(Helper helper) throws ServletException, IOException {
-        return "/WEB-INF/page/error.jsp"; //some error page
+        return "/WEB-INF/page/composite/error.jsp"; //some error page
     }
 
     @Override
-    public String getLocalPath() {
+    protected String getLocalPath() {
         return null;
     }
 }

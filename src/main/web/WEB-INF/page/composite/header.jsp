@@ -9,6 +9,6 @@
     <link rel="stylesheet" href="<c:url value="/static/bootstrap/css/bootstrap.min.css"/>">
     <link rel="stylesheet" href="<c:url value="/static/bootstrap/css/bootstrap-theme.min.css"/>">
     <script src="<c:url value="/static/bootstrap/js/bootstrap.min.js"/>"></script>
-    <title><c:out value="${param.title}"/></title>
+    <title><c:out value="${requestScope.title}"/></title>
 </head>
 <body id="">

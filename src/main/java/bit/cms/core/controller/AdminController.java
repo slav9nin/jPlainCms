@@ -14,7 +14,7 @@ public class AdminController extends PageController implements Controller {
     }
 
     @Override
-    public String getLocalPath() {
+    protected String getLocalPath() {
         return "/WEB-INF/page/admin/index.jsp";
     }
 }

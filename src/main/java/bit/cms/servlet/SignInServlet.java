@@ -36,9 +36,10 @@ public class SignInServlet extends GeneralServlet {
 
         try {
             User user = DAOFactory.getDAOFactory(DataBaseType.MY_SQL).getUserDAO().getUser(login, new MD5Util(password).compute());
+            request.login(login, password);
             HttpSession session = request.getSession(true);
-            session.setAttribute("user", new ParameterBean("user", user));
-            session.setAttribute("remember-me", new ParameterBean("remember-me", remember));
+            session.setAttribute("user", new ParameterBean<User>("user", user));
+            session.setAttribute("remember-me", new ParameterBean<Boolean>("remember-me", remember));
             if (urlToRedirect != null) {
                 redirect(response, urlToRedirect);
             } else {

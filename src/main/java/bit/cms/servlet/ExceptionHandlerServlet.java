@@ -25,6 +25,6 @@ public class ExceptionHandlerServlet extends GeneralServlet {
 
     @Override
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        generalDispatch(request, response, "/WEB-INF/page/error.jsp");
+        generalDispatch(request, response, "/WEB-INF/page/composite/error.jsp");
     }
 }

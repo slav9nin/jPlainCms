@@ -7,16 +7,16 @@ import java.io.Serializable;
  *         Date: 19.11.2014
  *         Time: 11:11
  */
-public class ParameterBean implements Serializable {
+public class ParameterBean<T> implements Serializable {
     private static final long serialVersionUID = 5529007207587142214L;
 
     private String parameterName;
-    private Object parameterValue;
+    private T parameterValue;
 
     public ParameterBean() {
     }
 
-    public ParameterBean(String parameterName, Object parameterValue) {
+    public ParameterBean(String parameterName, T parameterValue) {
 
         this.parameterName = parameterName;
         this.parameterValue = parameterValue;
@@ -30,11 +30,11 @@ public class ParameterBean implements Serializable {
         this.parameterName = parameterName;
     }
 
-    public Object getParameterValue() {
+    public T getParameterValue() {
         return parameterValue;
     }
 
-    public void setParameterValue(Object parameterValue) {
+    public void setParameterValue(T parameterValue) {
         this.parameterValue = parameterValue;
     }
 

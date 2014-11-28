@@ -1,9 +1,7 @@
 package bit.cms.core.controller;
 
-import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import java.io.IOException;
 
 /**
  * @author Artem.Telizhenko
@@ -17,7 +15,7 @@ public class UserController extends PageController implements Controller {
     }
 
     @Override
-    public String getLocalPath() {
-        return "/WEB-INF/page/user/index.jsp";
+    protected String getLocalPath() {
+        return "/WEB-INF/page/composite/index.jsp";
     }
 }

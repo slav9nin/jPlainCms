@@ -25,8 +25,8 @@ public class DefaultServlet extends GeneralServlet {
 
     @Override
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if (request.getRequestURI().equals("/"))
-            generalDispatch(request, response, "/WEB-INF/page/user/index.jsp");
+        if ("/".equals(request.getRequestURI()))
+            generalDispatch(request, response, "/WEB-INF/page/composite/index.jsp");
         else
             dispatch(request, response, "/exception");
     }

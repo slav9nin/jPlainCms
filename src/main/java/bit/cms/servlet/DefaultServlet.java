@@ -5,6 +5,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import static bit.cms.core.Constants.*;
+
 /**
  * @author Artem.Telizhenko
  *         Date: 18.11.2014
@@ -25,9 +27,9 @@ public class DefaultServlet extends GeneralServlet {
 
     @Override
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if ("/".equals(request.getRequestURI()))
-            generalDispatch(request, response, "/WEB-INF/page/composite/index.jsp");
+        if (DEFAULT_SERVLET.equals(request.getRequestURI()))
+            generalDispatch(request, response, USER_PAGE);
         else
-            dispatch(request, response, "/exception");
+            dispatch(request, response, EXCEPTION_SERVLET);
     }
 }

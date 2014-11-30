@@ -7,6 +7,7 @@ package bit.cms.core.dao.domain;
  */
 public class Role implements Id {
     private static final long serialVersionUID = -4125465682416247203L;
+
     private Long id;
     private String roleName;
     private boolean isActive;

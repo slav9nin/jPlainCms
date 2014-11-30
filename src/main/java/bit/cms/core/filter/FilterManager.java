@@ -8,6 +8,9 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
+import static bit.cms.core.Constants.LOGIN_SERVLET;
+import static bit.cms.core.Constants.URL_PARAMETER;
+
 /**
  * @author Artem.Telizhenko
  *         Date: 12.11.2014
@@ -27,8 +30,8 @@ public class FilterManager {
             filterChain.processFilter(request, response);
             chain.doFilter(request, response);
         } catch (AuthenticationException e) {
-            request.setAttribute("url", ((HttpServletRequest) request).getRequestURI());
-            request.getRequestDispatcher("/login").forward(request, response);
+            request.setAttribute(URL_PARAMETER, ((HttpServletRequest) request).getRequestURI());
+            request.getRequestDispatcher(LOGIN_SERVLET).forward(request, response);
         }
     }
 }

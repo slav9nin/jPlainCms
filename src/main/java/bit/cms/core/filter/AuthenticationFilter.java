@@ -1,11 +1,16 @@
 package bit.cms.core.filter;
 
+import bit.cms.core.controller.Controller;
 import bit.cms.core.exception.AuthenticationException;
+import bit.cms.core.helper.Helper;
+import bit.cms.core.helper.RequestResponseHelper;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
+import static bit.cms.core.Constants.USER;
 
 /**
  * @author Artem.Telizhenko
@@ -26,11 +31,15 @@ public class AuthenticationFilter implements Filter {
 
     @Override
     public void execute(ServletRequest request, ServletResponse response) throws AuthenticationException {
-        HttpServletRequest servletRequest = (HttpServletRequest) request;
-        HttpSession session = servletRequest.getSession(false);
-        if (session == null || session.getAttribute("user") == null)
-            throw new AuthenticationException("User is not authenticated");
+        Helper helper = new RequestResponseHelper(request, response);
+        Controller controller = helper.getController();
+        if (helper.isAdminController(controller)) {
+            HttpServletRequest servletRequest = (HttpServletRequest) request;
+            HttpSession session = servletRequest.getSession(false);
+            if (session == null || session.getAttribute(USER) == null)
+                throw new AuthenticationException("User is not authenticated");
 
+        }
         if (target != null)
             target.execute(request, response);
     }

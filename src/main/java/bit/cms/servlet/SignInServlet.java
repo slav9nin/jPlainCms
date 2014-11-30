@@ -40,16 +40,16 @@ public class SignInServlet extends GeneralServlet {
             User user = DAOFactory.getDAOFactory(DataBaseType.MY_SQL).getUserDAO().getUser(login, new MD5Util(password).compute());
 //            request.login(login, password);
             HttpSession session = request.getSession(true);
-            session.setAttribute("user", new ParameterBean<User>("user", user));
-            session.setAttribute("remember-me", new ParameterBean<Boolean>("remember-me", remember));
+            session.setAttribute(USER, new ParameterBean<User>(USER, user));
+            session.setAttribute(REMEMBER_ME, new ParameterBean<Boolean>(REMEMBER_ME, remember));
             if (urlToRedirect != null) {
                 redirect(response, urlToRedirect);
             } else {
-                String page = "pages/";
+                String page = PAGE_CONTROLLER_SERVLET;
                 if (user.getUserRole().getId() == 1L)
-                    page += "admin";
+                    page += ADMIN;
                 else
-                    page += "user";
+                    page += USER;
                 redirect(response, page);
             }
         } catch (UserNotFoundException | SQLException e) {

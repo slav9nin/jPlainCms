@@ -14,7 +14,8 @@ import java.util.List;
  *         Time: 15:30
  */
 public interface UserDAO extends Serializable {
-    public void insertUser(User user);
+
+    public void createUser(User user);
 
     public void insertUsers(Collection<User> users);
 

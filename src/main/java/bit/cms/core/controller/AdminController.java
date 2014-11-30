@@ -3,6 +3,8 @@ package bit.cms.core.controller;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
+import static bit.cms.core.Constants.ADMIN_INDEX_PAGE;
+
 /**
  * @author Artem.Telizhenko
  *         Date: 12.11.2014
@@ -15,6 +17,6 @@ public class AdminController extends PageController implements Controller {
 
     @Override
     protected String getLocalPath() {
-        return "/WEB-INF/page/admin/index.jsp";
+        return ADMIN_INDEX_PAGE;
     }
 }

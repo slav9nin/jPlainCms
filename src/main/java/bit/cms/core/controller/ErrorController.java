@@ -7,6 +7,8 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import java.io.IOException;
 
+import static bit.cms.core.Constants.ERROR_PAGE;
+
 /**
  * @author Artem.Telizhenko
  *         Date: 13.11.2014
@@ -19,7 +21,7 @@ public class ErrorController extends PageController implements Controller {
 
     @Override
     public String getPage(Helper helper) throws ServletException, IOException {
-        return "/WEB-INF/page/composite/error.jsp"; //some error page
+        return ERROR_PAGE;
     }
 
     @Override

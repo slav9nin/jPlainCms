@@ -13,6 +13,4 @@ import java.io.IOException;
 public interface Controller {
     public String getPage(Helper helper) throws ServletException, IOException;
 
-    public static final String USER = "user";
-    public static final String ADMIN = "admin";
 }

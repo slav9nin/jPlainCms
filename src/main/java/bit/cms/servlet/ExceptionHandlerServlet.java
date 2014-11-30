@@ -5,6 +5,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import static bit.cms.core.Constants.ERROR_PAGE;
+
 /**
  * @author Artem.Telizhenko
  *         Date: 18.11.2014
@@ -25,6 +27,6 @@ public class ExceptionHandlerServlet extends GeneralServlet {
 
     @Override
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        generalDispatch(request, response, "/WEB-INF/page/composite/error.jsp");
+        generalDispatch(request, response, ERROR_PAGE);
     }
 }

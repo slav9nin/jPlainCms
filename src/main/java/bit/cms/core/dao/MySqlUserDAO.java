@@ -1,14 +1,11 @@
 package bit.cms.core.dao;
 
-import bit.cms.core.dao.bean.BeanCreator;
 import bit.cms.core.dao.bean.UserBeanCreatorImpl;
-import bit.cms.core.dao.domain.Role;
 import bit.cms.core.dao.domain.User;
 import bit.cms.core.exception.UserNotFoundException;
 import bit.cms.util.PrepareStatementUtil;
 
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.List;
@@ -27,7 +24,7 @@ public class MySqlUserDAO implements UserDAO {
     }
 
     @Override
-    public void insertUser(User user) {
+    public void createUser(User user) {
 
     }
 

@@ -10,6 +10,9 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import static bit.cms.core.Constants.ADMIN;
+import static bit.cms.core.Constants.USER;
+
 /**
  * @author Artem.Telizhenko
  *         Date: 13.11.2014
@@ -31,9 +34,23 @@ public class RequestResponseHelper implements Helper {
         return ControllerFactory.getController((HttpServletRequest) servletRequest, (HttpServletResponse) servletResponse);
     }
 
+    @Override
+    public boolean isAdminController(Controller controller) {
+        return controller != null && controller instanceof AdminController;
+    }
+
+    @Override
+    public boolean isAUserController(Controller controller) {
+        return controller != null && controller instanceof UserController;
+    }
+
+    @Override
+    public boolean isErrorController(Controller controller) {
+        return controller != null && controller instanceof ErrorController;
+    }
+
     private static class ControllerFactory {
         public static Controller getController(HttpServletRequest request, HttpServletResponse response) {
-//            String requestUri = request.getRequestURI();
             String path = request.getPathInfo();
             if (path == null)
                 return new ErrorController(request, response);
@@ -43,9 +60,9 @@ public class RequestResponseHelper implements Helper {
                     if (currentPath.length() == 0)
                         continue;
                     switch (currentPath) {
-                        case Controller.USER:
+                        case USER:
                             return new UserController(request, response);
-                        case Controller.ADMIN:
+                        case ADMIN:
                             return new AdminController(request, response);
                         default:
                             return new ErrorController(request, response);

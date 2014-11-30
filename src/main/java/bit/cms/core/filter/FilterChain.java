@@ -8,6 +8,9 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
+import static bit.cms.core.Constants.SIGN_SERVLET;
+import static bit.cms.core.Constants.STATIC_PATH;
+
 /**
  * @author Artem.Telizhenko
  *         Date: 12.11.2014
@@ -30,7 +33,7 @@ public class FilterChain {
 
     public void processFilter(ServletRequest request, ServletResponse response) throws AuthenticationException, ServletException, IOException {
         String path = ((HttpServletRequest) request).getRequestURI();
-        if (path.startsWith("/static") || path.equals("/sign"))
+        if (path.startsWith(STATIC_PATH) || path.equals(SIGN_SERVLET))
             return;
         if (filter != null)
             filter.execute(request, response);

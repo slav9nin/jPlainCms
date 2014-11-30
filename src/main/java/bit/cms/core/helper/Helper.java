@@ -9,4 +9,10 @@ import java.io.Serializable;
  */
 public interface Helper extends Serializable {
     public Controller getController();
+
+    public boolean isAdminController(Controller controller);
+
+    public boolean isAUserController(Controller controller);
+
+    public boolean isErrorController(Controller controller);
 }

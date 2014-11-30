@@ -3,6 +3,8 @@ package bit.cms.core.controller;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
+import static bit.cms.core.Constants.USER_PAGE;
+
 /**
  * @author Artem.Telizhenko
  *         Date: 13.11.2014
@@ -16,6 +18,6 @@ public class UserController extends PageController implements Controller {
 
     @Override
     protected String getLocalPath() {
-        return "/WEB-INF/page/composite/index.jsp";
+        return USER_PAGE;
     }
 }

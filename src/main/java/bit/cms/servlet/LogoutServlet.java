@@ -14,17 +14,17 @@ import static bit.cms.core.Constants.DEFAULT_SERVLET;
 public class LogoutServlet extends GeneralServlet {
     private static final long serialVersionUID = 4246336552667246788L;
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         processRequest(request, response);
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         processRequest(request, response);
     }
 
     @Override
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.logout();
+//        request.logout();
         HttpSession session = request.getSession();
         session.invalidate();
         generalDispatch(request, response, DEFAULT_SERVLET);

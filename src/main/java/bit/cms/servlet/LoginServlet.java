@@ -5,6 +5,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import static bit.cms.core.Constants.LOGIN_PAGE;
+
 /**
  * @author Artem.Telizhenko
  *         Date: 12.11.2014
@@ -25,6 +27,6 @@ public class LoginServlet extends GeneralServlet {
 
     @Override
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/WEB-INF/page/composite/login.jsp").include(request, response);
+        getServletContext().getRequestDispatcher(LOGIN_PAGE).include(request, response);
     }
 }

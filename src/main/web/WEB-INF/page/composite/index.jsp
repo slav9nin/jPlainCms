@@ -1,8 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="/WEB-INF/page/composite/header.jsp"/>
 <div class="page-header">
-    <h1>Example page header
-        <small>Subtext for header</small>
+    <h1>
+        <div style="text-align: center;">Java Plain Cms builder</div>
     </h1>
 </div>
 <jsp:include page="/WEB-INF/page/composite/menu.jsp"/>

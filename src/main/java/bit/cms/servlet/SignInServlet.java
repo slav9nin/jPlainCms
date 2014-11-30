@@ -14,6 +14,8 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import static bit.cms.core.Constants.*;
+
 /**
  * @author Artem.Telizhenko
  *         Date: 12.11.2014
@@ -29,14 +31,14 @@ public class SignInServlet extends GeneralServlet {
 
     @Override
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String login = request.getParameter("login");
-        String password = request.getParameter("password");
-        boolean remember = "remember-me".equals(request.getParameter("remember"));
-        String urlToRedirect = request.getParameter("url");
+        String login = request.getParameter(LOGIN_PARAMETER);
+        String password = request.getParameter(PASSWD_PARAMETER);
+        boolean remember = RM_ME_PARAMETER.equals(request.getParameter(RM_ME_PARAMETER));
+        String urlToRedirect = request.getParameter(URL_PARAMETER);
 
         try {
             User user = DAOFactory.getDAOFactory(DataBaseType.MY_SQL).getUserDAO().getUser(login, new MD5Util(password).compute());
-            request.login(login, password);
+//            request.login(login, password);
             HttpSession session = request.getSession(true);
             session.setAttribute("user", new ParameterBean<User>("user", user));
             session.setAttribute("remember-me", new ParameterBean<Boolean>("remember-me", remember));
@@ -51,8 +53,8 @@ public class SignInServlet extends GeneralServlet {
                 redirect(response, page);
             }
         } catch (UserNotFoundException | SQLException e) {
-            request.setAttribute("loginException", e.getMessage());
-            generalDispatch(request, response, "/login");
+            request.setAttribute(EXCEPTION_ATTR, e.getMessage());
+            generalDispatch(request, response, LOGIN_SERVLET);
         }
     }
 }

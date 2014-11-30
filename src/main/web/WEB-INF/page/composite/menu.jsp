@@ -12,10 +12,11 @@
                 </button>
                 <a class="navbar-brand" href="#">Plain CMS Example</a>
             </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-                    <li><a href="#">Link</a></li>
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown
                             <span class="caret"></span></a>
@@ -24,8 +25,8 @@
                             <li><a href="#">Another action</a></li>
                             <li><a href="#">Something else here</a></li>
                             <li class="divider"></li>
+                            <li class="dropdown-header">Nav header</li>
                             <li><a href="#">Separated link</a></li>
-                            <li class="divider"></li>
                             <li><a href="#">One more separated link</a></li>
                         </ul>
                     </li>

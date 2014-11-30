@@ -10,9 +10,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="<c:url value="/static/bootstrap/css/bootstrap.min.css"/>">
-    <link rel="stylesheet" href="<c:url value="/static/bootstrap/css/bootstrap-theme.min.css"/>">
-    <link rel="stylesheet" href="<c:url value="/static/bootstrap/css/navbar.css"/>">
+    <link href="<c:url value="/static/bootstrap/css/bootstrap-theme.min.css"/>" rel="stylesheet">
+    <link href="<c:url value="/static/bootstrap/css/bootstrap.min.css"/>" rel="stylesheet">
+    <link href="<c:url value="/static/bootstrap/css/navbar.css"/>" rel="stylesheet">
     <title>Plain CMS</title>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->

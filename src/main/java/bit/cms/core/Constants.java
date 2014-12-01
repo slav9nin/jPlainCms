@@ -8,7 +8,7 @@ public interface Constants {
     public static final String ADMIN = "admin";
     public static final String REMEMBER_ME = "remember-me";
 
-    public static final String STATIC_PATH = "/static";
+    public static final String STATIC_PATH = "/static/";
 
     public static final int ITEMS_PER_PAGE = 20;
 

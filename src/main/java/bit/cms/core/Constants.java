@@ -3,14 +3,14 @@ package bit.cms.core;
 /**
  * Created by bito4ek on 23.11.14.
  */
-public interface Constants {
+public class Constants {
     public static final String USER = "user";
     public static final String ADMIN = "admin";
     public static final String REMEMBER_ME = "remember-me";
 
     public static final String STATIC_PATH = "/static/";
 
-    public static final int ITEMS_PER_PAGE = 20;
+    public static final Integer ITEMS_PER_PAGE = 20;
 
     public static final String EXCEPTION_ATTR = "loginException";
 
@@ -30,4 +30,7 @@ public interface Constants {
     public static final String ERROR_PAGE = "/WEB-INF/page/composite/error.jsp";
     public static final String USER_PAGE = "/WEB-INF/page/composite/index.jsp";
     public static final String LOGIN_PAGE = "/WEB-INF/page/composite/login.jsp";
+
+    private Constants() {
+    }
 }

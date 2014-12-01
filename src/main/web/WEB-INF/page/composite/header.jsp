@@ -13,6 +13,9 @@
     <link href="<c:url value="/static/bootstrap/css/bootstrap-theme.min.css"/>" rel="stylesheet">
     <link href="<c:url value="/static/bootstrap/css/bootstrap.min.css"/>" rel="stylesheet">
     <link href="<c:url value="/static/bootstrap/css/navbar.css"/>" rel="stylesheet">
+
+    <link href="<c:url value="/static/bootstrap/img/favicon.ico"/>" rel="shortcut icon" type="image/x-icon"/>
+
     <title>Plain CMS</title>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->

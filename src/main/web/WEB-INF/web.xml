@@ -75,4 +75,12 @@
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>
+
+    <context-param>
+        <param-name>log4j-config-location</param-name>
+        <param-value>WEB-INF/log4j.properties</param-value>
+    </context-param>
+    <listener>
+        <listener-class>bit.cms.core.context.ContextListener</listener-class>
+    </listener>
 </web-app>

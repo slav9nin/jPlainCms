@@ -1,9 +1,11 @@
 package bit.cms.core.filter;
 
 import bit.cms.core.exception.AuthenticationException;
+import org.apache.log4j.Logger;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author Artem.Telizhenko
@@ -23,7 +25,10 @@ public class DebugFilter implements Filter {
     }
 
     @Override
-    public void execute(ServletRequest request, ServletResponse response) throws AuthenticationException {
+    public void execute(final ServletRequest request, ServletResponse response) throws AuthenticationException {
+        Logger logger = Logger.getLogger("DebugFilter");
+        logger.debug("Page is: " + ((HttpServletRequest) request).getRequestURI());
+
         if (target != null)
             target.execute(request, response);
     }

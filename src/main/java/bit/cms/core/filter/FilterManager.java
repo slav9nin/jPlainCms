@@ -19,7 +19,14 @@ import static bit.cms.core.Constants.URL_PARAMETER;
 public class FilterManager {
     private javax.servlet.FilterChain chain;
 
+    public FilterManager() {
+    }
+
     public FilterManager(javax.servlet.FilterChain chain) {
+        this.chain = chain;
+    }
+
+    public void setChain(javax.servlet.FilterChain chain) {
         this.chain = chain;
     }
 
@@ -28,7 +35,8 @@ public class FilterManager {
         try {
             FilterChain filterChain = new FilterChain();
             filterChain.processFilter(request, response);
-            chain.doFilter(request, response);
+            if (chain != null)
+                chain.doFilter(request, response);
         } catch (AuthenticationException e) {
             request.setAttribute(URL_PARAMETER, ((HttpServletRequest) request).getRequestURI());
             request.getRequestDispatcher(LOGIN_SERVLET).forward(request, response);

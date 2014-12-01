@@ -27,5 +27,4 @@ public abstract class PageController implements Controller {
     }
 
     protected abstract String getLocalPath();
-
 }

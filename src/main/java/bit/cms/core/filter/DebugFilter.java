@@ -1,9 +1,11 @@
 package bit.cms.core.filter;
 
 import bit.cms.core.exception.AuthenticationException;
+import bit.cms.core.logger.Log;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author Artem.Telizhenko

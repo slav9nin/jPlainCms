@@ -19,14 +19,7 @@ import static bit.cms.core.Constants.URL_PARAMETER;
 public class FilterManager {
     private javax.servlet.FilterChain chain;
 
-    public FilterManager() {
-    }
-
     public FilterManager(javax.servlet.FilterChain chain) {
-        this.chain = chain;
-    }
-
-    public void setChain(javax.servlet.FilterChain chain) {
         this.chain = chain;
     }
 

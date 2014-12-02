@@ -22,7 +22,7 @@ public class AuthenticationFilter implements Filter {
     private Filter target;
 
     public AuthenticationFilter() {
-        this(null);
+        this(new EmptyFilter());
     }
 
     public AuthenticationFilter(Filter target) {

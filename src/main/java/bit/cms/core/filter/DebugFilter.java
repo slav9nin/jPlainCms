@@ -17,7 +17,7 @@ public class DebugFilter implements Filter {
     private Filter target;
 
     public DebugFilter() {
-        this(null);
+        this(new EmptyFilter());
     }
 
     public DebugFilter(Filter target) {

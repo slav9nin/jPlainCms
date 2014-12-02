@@ -23,14 +23,6 @@ public class FilterChain {
         filter = new DebugFilter(new AuthenticationFilter(new CoreFilter()));
     }
 
-    public FilterChain(Filter filter) {
-        this.filter = filter;
-    }
-
-    public void setFilter(Filter filter) {
-        this.filter = filter;
-    }
-
     public void processFilter(ServletRequest request, ServletResponse response) throws AuthenticationException, ServletException, IOException {
         String path = ((HttpServletRequest) request).getRequestURI();
         if (path.startsWith(STATIC_PATH) || path.equals(SIGN_SERVLET))

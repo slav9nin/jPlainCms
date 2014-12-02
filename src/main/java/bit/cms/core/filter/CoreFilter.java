@@ -15,7 +15,7 @@ public class CoreFilter implements Filter {
     private Filter target;
 
     public CoreFilter() {
-        this(null);
+        this(new EmptyFilter());
     }
 
     public CoreFilter(Filter target) {

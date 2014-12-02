@@ -30,6 +30,6 @@ public class DefaultServlet extends GeneralServlet {
         if (DEFAULT_SERVLET.equals(request.getRequestURI()))
             generalDispatch(request, response, USER_PAGE);
         else
-            dispatch(request, response, EXCEPTION_SERVLET);
+            generalDispatch(request, response, EXCEPTION_SERVLET);
     }
 }

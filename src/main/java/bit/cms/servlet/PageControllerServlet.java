@@ -1,8 +1,8 @@
 package bit.cms.servlet;
 
 import bit.cms.core.controller.Controller;
-import bit.cms.core.helper.RequestResponseHelper;
 import bit.cms.core.helper.Helper;
+import bit.cms.core.helper.RequestResponseHelper;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -17,8 +17,14 @@ import java.io.IOException;
 public class PageControllerServlet extends GeneralServlet {
     private static final long serialVersionUID = -7217426012930131203L;
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         processRequest(request, response);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        sendNotSupported(req, resp);
     }
 
     @Override

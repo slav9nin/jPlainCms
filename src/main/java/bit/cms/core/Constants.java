@@ -31,6 +31,8 @@ public class Constants {
     public static final String USER_PAGE = "/WEB-INF/page/composite/index.jsp";
     public static final String LOGIN_PAGE = "/WEB-INF/page/composite/login.jsp";
 
+    public static final String METHOD_NOT_SUPPORT = "Method type is not supported";
+
     private Constants() {
     }
 }

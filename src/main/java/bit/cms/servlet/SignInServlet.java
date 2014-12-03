@@ -24,6 +24,12 @@ import static bit.cms.core.Constants.*;
 public class SignInServlet extends GeneralServlet {
     private static final long serialVersionUID = 543003230913635791L;
 
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        sendNotSupported(req, resp);
+    }
+
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         processRequest(request, response);
 

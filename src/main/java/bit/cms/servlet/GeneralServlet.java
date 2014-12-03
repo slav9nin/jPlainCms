@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import static bit.cms.core.Constants.METHOD_NOT_SUPPORT;
+
 /**
  * @author Artem.Telizhenko
  *         Date: 13.11.2014
@@ -29,5 +31,15 @@ public abstract class GeneralServlet extends HttpServlet {
         response.sendRedirect(page);
     }
 
+    @Override
+    protected abstract void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException;
+
+    @Override
+    protected abstract void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException;
+
     protected abstract void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+
+    protected void sendNotSupported(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.sendError(HttpServletResponse.SC_BAD_REQUEST, METHOD_NOT_SUPPORT);
+    }
 }

@@ -9,4 +9,5 @@ import org.apache.log4j.Logger;
  */
 public class Log {
     public static final Logger DEBUG = Logger.getLogger("DebugFilter");
+    public static final Logger SQL_EXCEPTION = Logger.getLogger("SQLException");
 }

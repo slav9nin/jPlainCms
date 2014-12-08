@@ -1,6 +1,7 @@
 package bit.cms.util;
 
 import bit.cms.core.dao.bean.BeanCreator;
+import bit.cms.core.logger.Log;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -30,7 +31,7 @@ public class PrepareStatementUtil {
             }
             return null;
         } catch (SQLException e) {
-            e.printStackTrace();
+            Log.SQL_EXCEPTION.info(e);
             connection.rollback();
             return null;
         } finally {
@@ -48,7 +49,7 @@ public class PrepareStatementUtil {
             }
             return result;
         } catch (SQLException e) {
-            e.printStackTrace();
+            Log.SQL_EXCEPTION.info(e);
             connection.rollback();
         } finally {
             connection.commit();
@@ -72,10 +73,9 @@ public class PrepareStatementUtil {
         connection.setAutoCommit(false);
         try {
             PreparedStatement preparedStatement = createSql(sql, connection, parameters);
-            boolean execute = preparedStatement.execute();
-            return execute;
+            return preparedStatement.execute();
         } catch (SQLException e) {
-            e.printStackTrace();
+            Log.SQL_EXCEPTION.info(e);
             connection.rollback();
         } finally {
             connection.commit();
@@ -90,7 +90,7 @@ public class PrepareStatementUtil {
             preparedStatement.addBatch();
             preparedStatement.executeBatch();
         } catch (SQLException e) {
-            e.printStackTrace();
+            Log.SQL_EXCEPTION.info(e);
             connection.rollback();
         } finally {
             connection.commit();

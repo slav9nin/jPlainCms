@@ -25,7 +25,7 @@ public class DebugFilter implements Filter {
     @Override
     public void execute(final ServletRequest request, ServletResponse response)
             throws AuthenticationException, UserIsNotAdminException {
-        Log.DEBUG.debug("Page is: " + ((HttpServletRequest) request).getRequestURI());
+        Log.DEBUG.info("Page is: " + ((HttpServletRequest) request).getRequestURI());
 
         if (target != null)
             target.execute(request, response);

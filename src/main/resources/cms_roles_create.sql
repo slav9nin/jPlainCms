@@ -2,5 +2,6 @@ CREATE TABLE cms_roles
 (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   name VARCHAR(40) NOT NULL,
-  active CHAR(1)
+  active   CHAR(1),
+  is_admin CHAR(1) DEFAULT 'N'
 );

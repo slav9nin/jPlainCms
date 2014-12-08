@@ -1,6 +1,7 @@
 package bit.cms.core.filter;
 
 import bit.cms.core.exception.AuthenticationException;
+import bit.cms.core.exception.UserIsNotAdminException;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
@@ -16,18 +17,20 @@ import static bit.cms.core.Constants.STATIC_PATH;
  *         Date: 12.11.2014
  *         Time: 8:50
  */
-public class FilterChain {
-    private Filter filter;
+public final class FilterChain implements IFilterChain {
+    private static IFilterChain instance = new FilterChain();
 
-    public FilterChain() {
-        filter = new DebugFilter(new AuthenticationFilter(new CoreFilter()));
+    public static IFilterChain getInstance() {
+        return instance;
     }
 
-    public void processFilter(ServletRequest request, ServletResponse response) throws AuthenticationException, ServletException, IOException {
+    @Override
+    public void processFilter(ServletRequest request, ServletResponse response)
+            throws AuthenticationException, ServletException, IOException, UserIsNotAdminException {
         String path = ((HttpServletRequest) request).getRequestURI();
         if (path.startsWith(STATIC_PATH) || path.equals(SIGN_SERVLET))
             return;
-        if (filter != null)
-            filter.execute(request, response);
+        if (DEFAULT_FILTER != null)
+            DEFAULT_FILTER.execute(request, response);
     }
 }

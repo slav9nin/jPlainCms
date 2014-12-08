@@ -20,7 +20,7 @@ public class MainBaseFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        FilterManager filterManager = new FilterManager(filterChain);
+        IFilterManager filterManager = new FilterManager(filterChain);
         filterManager.processFilter(servletRequest, servletResponse);
     }
 

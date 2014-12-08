@@ -11,6 +11,7 @@ public class Role implements Id {
     private Long id;
     private String roleName;
     private boolean isActive;
+    private boolean isAdmin;
 
     public Role(Long id) {
         this.id = id;
@@ -44,6 +45,14 @@ public class Role implements Id {
         this.isActive = isActive;
     }
 
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean isAdmin) {
+        this.isAdmin = isAdmin;
+    }
+
     @Override
     public int hashCode() {
         return id != null ? id.hashCode() : 0;
@@ -56,18 +65,17 @@ public class Role implements Id {
 
         Role role = (Role) o;
 
-        if (id != null ? !id.equals(role.id) : role.id != null) return false;
+        return !(id != null ? !id.equals(role.id) : role.id != null);
 
-        return true;
     }
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Role{");
-        sb.append("id=").append(id);
-        sb.append(", roleName='").append(roleName).append('\'');
-        sb.append(", isActive=").append(isActive);
-        sb.append('}');
-        return sb.toString();
+        return "Role{" +
+                "id=" + id +
+                ", roleName='" + roleName + '\'' +
+                ", isActive=" + isActive +
+                ", isAdmin=" + isAdmin +
+                '}';
     }
 }

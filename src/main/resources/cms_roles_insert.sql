@@ -1,2 +1,2 @@
-INSERT INTO javacms.cms_roles (id, name, active) VALUES (1, 'Administrators', 'Y');
-INSERT INTO javacms.cms_roles (id, name, active) VALUES (2, 'Plain User', 'Y');
+INSERT INTO javacms.cms_roles (id, name, active, is_admin) VALUES (1, 'Administrators', 'Y', 'Y');
+INSERT INTO javacms.cms_roles (id, name, active, is_admin) VALUES (2, 'Plain User', 'Y', 'N');

@@ -1,6 +1,7 @@
 package bit.cms.core.filter;
 
 import bit.cms.core.exception.AuthenticationException;
+import bit.cms.core.exception.UserIsNotAdminException;
 import bit.cms.core.logger.Log;
 
 import javax.servlet.ServletRequest;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
  *         Time: 8:49
  */
 public class DebugFilter implements Filter {
+    private static final long serialVersionUID = 4373127765482008548L;
 
     private Filter target;
 
@@ -25,7 +27,8 @@ public class DebugFilter implements Filter {
     }
 
     @Override
-    public void execute(final ServletRequest request, ServletResponse response) throws AuthenticationException {
+    public void execute(final ServletRequest request, ServletResponse response)
+            throws AuthenticationException, UserIsNotAdminException {
         Log.DEBUG.debug("Page is: " + ((HttpServletRequest) request).getRequestURI());
 
         if (target != null)

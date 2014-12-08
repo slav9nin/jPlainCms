@@ -16,7 +16,8 @@ public interface UserSQL {
             "  u.role_id     AS ROLE_ID,\n" +
             "  u.active      AS USER_ACTIVE,\n" +
             "  r.name        AS ROLE_NAME,\n" +
-            "  r.active      AS ROLE_ACTIVE\n" +
+            "  r.active      AS ROLE_ACTIVE,\n" +
+            "  r.is_admin      AS ROLE_ADMIN\n" +
             "FROM cms_users u INNER JOIN cms_roles r ON u.role_id = r.id WHERE u.active = '?' AND r.active = 'Y'";
     public static final String GET_USER = "SELECT\n" +
             "  u.id          AS USER_ID,\n" +
@@ -28,7 +29,8 @@ public interface UserSQL {
             "  u.role_id     AS ROLE_ID,\n" +
             "  u.active      AS USER_ACTIVE,\n" +
             "  r.name        AS ROLE_NAME,\n" +
-            "  r.active      AS ROLE_ACTIVE\n" +
+            "  r.active      AS ROLE_ACTIVE,\n" +
+            "  r.is_admin      AS ROLE_ADMIN\n" +
             "FROM cms_users u INNER JOIN cms_roles r ON u.role_id = r.id WHERE u.login = ? AND u.password = ? AND r.active = 'Y' AND u.active = 'Y'";
     public static final String GET_USER_BY_ID = "SELECT\n" +
             "  u.id          AS USER_ID,\n" +
@@ -40,6 +42,7 @@ public interface UserSQL {
             "  u.role_id     AS ROLE_ID,\n" +
             "  u.active      AS USER_ACTIVE,\n" +
             "  r.name        AS ROLE_NAME,\n" +
-            "  r.active      AS ROLE_ACTIVE\n" +
+            "  r.active      AS ROLE_ACTIVE,\n" +
+            "  r.is_admin      AS ROLE_ADMIN\n" +
             "FROM cms_users u INNER JOIN cms_roles r ON u.role_id = r.id WHERE u.id = ? AND r.active = 'Y' AND u.active = 'Y'";
 }

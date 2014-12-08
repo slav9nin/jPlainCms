@@ -17,8 +17,8 @@ import static bit.cms.core.Constants.STATIC_PATH;
  *         Date: 12.11.2014
  *         Time: 8:50
  */
-public enum FilterChain implements IFilterChain {
-    INSTANCE();
+public final class FilterChain implements IFilterChain {
+    private static final long serialVersionUID = -9107833512619311156L;
 
     @Override
     public void processFilter(ServletRequest request, ServletResponse response)

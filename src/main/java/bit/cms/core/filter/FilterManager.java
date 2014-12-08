@@ -9,8 +9,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
-import static bit.cms.core.Constants.LOGIN_SERVLET;
-import static bit.cms.core.Constants.URL_PARAMETER;
+import static bit.cms.core.Constants.*;
 
 /**
  * @author Artem.Telizhenko
@@ -28,15 +27,14 @@ public final class FilterManager implements IFilterManager {
     public void processFilter(ServletRequest request,
                               ServletResponse response) throws ServletException, IOException {
         try {
-            IFilterChain filterChain = FilterChain.INSTANCE;
+            IFilterChain filterChain = new FilterChain();
             filterChain.processFilter(request, response);
             if (chain != null)
                 chain.doFilter(request, response);
-        } catch (AuthenticationException e) {
+        } catch (AuthenticationException | UserIsNotAdminException e) {
             request.setAttribute(URL_PARAMETER, ((HttpServletRequest) request).getRequestURI());
+            request.setAttribute(EXCEPTION_ATTR, e.getMessage());
             request.getRequestDispatcher(LOGIN_SERVLET).forward(request, response);
-        } catch (UserIsNotAdminException e) {
-            e.printStackTrace();
         }
     }
 }

@@ -28,6 +28,9 @@ public class UserBeanCreatorImpl implements BeanCreator<User> {
         role.setId(resultSet.getLong("ROLE_ID"));
         role.setRoleName(resultSet.getString("ROLE_NAME"));
         role.setActive(resultSet.getString("ROLE_ACTIVE").charAt(0) == 'Y');
+        String isAdmin = resultSet.getString("ROLE_ADMIN");
+        if (isAdmin != null && !isAdmin.isEmpty())
+            role.setAdmin(isAdmin.charAt(0) == 'Y');
 
         user.setUserRole(role);
         return user;

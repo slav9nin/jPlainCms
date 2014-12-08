@@ -45,7 +45,7 @@ public class AuthenticationFilter implements Filter {
                 ParameterBean<User> bean = (ParameterBean<User>) session.getAttribute(USER);
                 User currentUser = bean.getParameterValue();
                 if (!currentUser.getUserRole().isAdmin())
-                    throw new UserIsNotAdminException("User + " + currentUser + " is not an Administrator");
+                    throw new UserIsNotAdminException("User + " + currentUser.getLogin() + " is not an Administrator");
             }
 
         }

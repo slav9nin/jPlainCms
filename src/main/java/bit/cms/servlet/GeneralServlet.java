@@ -17,17 +17,17 @@ import static bit.cms.core.Constants.METHOD_NOT_SUPPORT;
 public abstract class GeneralServlet extends HttpServlet {
     private static final long serialVersionUID = 6615371722532028471L;
 
-    public void generalDispatch(HttpServletRequest request, HttpServletResponse response, String page) throws ServletException, IOException {
+    protected void generalDispatch(HttpServletRequest request, HttpServletResponse response, String page) throws ServletException, IOException {
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
         dispatcher.forward(request, response);
     }
 
-    public void dispatch(HttpServletRequest request, HttpServletResponse response, String page) throws ServletException, IOException {
+    protected void dispatch(HttpServletRequest request, HttpServletResponse response, String page) throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher(page);
         dispatcher.forward(request, response);
     }
 
-    public void redirect(HttpServletResponse response, String page) throws IOException {
+    protected void redirect(HttpServletResponse response, String page) throws IOException {
         response.sendRedirect(page);
     }
 

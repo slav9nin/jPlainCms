@@ -28,7 +28,7 @@ public final class FilterManager implements IFilterManager {
     public void processFilter(ServletRequest request,
                               ServletResponse response) throws ServletException, IOException {
         try {
-            IFilterChain filterChain = FilterChain.getInstance();
+            IFilterChain filterChain = FilterChain.INSTANCE;
             filterChain.processFilter(request, response);
             if (chain != null)
                 chain.doFilter(request, response);

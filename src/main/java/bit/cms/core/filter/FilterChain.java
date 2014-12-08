@@ -17,12 +17,8 @@ import static bit.cms.core.Constants.STATIC_PATH;
  *         Date: 12.11.2014
  *         Time: 8:50
  */
-public final class FilterChain implements IFilterChain {
-    private static IFilterChain instance = new FilterChain();
-
-    public static IFilterChain getInstance() {
-        return instance;
-    }
+public enum FilterChain implements IFilterChain {
+    INSTANCE();
 
     @Override
     public void processFilter(ServletRequest request, ServletResponse response)

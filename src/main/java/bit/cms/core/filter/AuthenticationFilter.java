@@ -26,10 +26,6 @@ public class AuthenticationFilter implements Filter {
 
     private final AtomicReference<Filter> target = new AtomicReference<>();
 
-    public AuthenticationFilter() {
-        this(new EmptyFilter());
-    }
-
     public AuthenticationFilter(Filter target) {
         this.target.set(target);
     }

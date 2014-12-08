@@ -13,6 +13,7 @@ import java.io.Serializable;
  *         Time: 8:47
  */
 public interface Filter extends Serializable {
+
     public void execute(ServletRequest request, ServletResponse response)
             throws AuthenticationException, UserIsNotAdminException;
 }

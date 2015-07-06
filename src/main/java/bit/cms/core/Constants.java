@@ -3,7 +3,7 @@ package bit.cms.core;
 /**
  * Created by bito4ek on 23.11.14.
  */
-public class Constants {
+public final class Constants {
     public static final String USER = "user";
     public static final String ADMIN = "admin";
     public static final String REMEMBER_ME = "remember-me";
